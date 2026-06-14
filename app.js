@@ -64,7 +64,7 @@ function render() {
         
         card.innerHTML = `
             <div class="card-img-container">
-                <img src="${item.image_url}" alt="${item.name}" class="card-img" loading="lazy">
+                <img src="${item.image_url}" alt="${item.name}" class="card-img" loading="lazy" onerror="this.onerror=null; this.src=getFallbackClothingImage('${item.name}')">
             </div>
             <div class="card-details">
                 <h3 class="card-name">${item.name}</h3>
@@ -80,6 +80,28 @@ function render() {
         itemsGrid.appendChild(card);
     });
 }
+
+// Helper to provide beautiful fallback images if Unsplash URL fails to load
+function getFallbackClothingImage(name) {
+    const lowercaseName = name.toLowerCase();
+    
+    // Guaranteed high-quality Unsplash clothing images
+    if (lowercaseName.includes('kaban') || lowercaseName.includes('mont') || lowercaseName.includes('ceket') || lowercaseName.includes('blazer') || lowercaseName.includes('outerwear')) {
+        return 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=600&auto=format&fit=crop';
+    }
+    if (lowercaseName.includes('pantolon') || lowercaseName.includes('jean') || lowercaseName.includes('trousers') || lowercaseName.includes('tayt') || lowercaseName.includes('şort') || lowercaseName.includes('etek')) {
+        return 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=600&auto=format&fit=crop';
+    }
+    if (lowercaseName.includes('ayakkabı') || lowercaseName.includes('sneaker') || lowercaseName.includes('bot') || lowercaseName.includes('postal') || lowercaseName.includes('çizme')) {
+        return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=600&auto=format&fit=crop';
+    }
+    if (lowercaseName.includes('gözlük') || lowercaseName.includes('kemer') || lowercaseName.includes('çanta') || lowercaseName.includes('şapka') || lowercaseName.includes('saat')) {
+        return 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=600&auto=format&fit=crop';
+    }
+    // Default to shirt/gömlek/tişört style
+    return 'https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?q=80&w=600&auto=format&fit=crop';
+}
+
 
 // Event Listeners for City Tabs
 cityBtns.forEach(btn => {

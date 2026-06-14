@@ -165,6 +165,92 @@ def generate_combination(city_name, temp, condition):
         print("Raw response was:", raw_res[:300])
         return None
 
+def get_verified_clothing_image(item_name, gender):
+    name_lower = item_name.lower()
+    
+    # Predefined high-quality verified Unsplash images
+    images = {
+        "female": {
+            "outerwear": [
+                "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=600&auto=format&fit=crop", # Brown wool coat
+                "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=600&auto=format&fit=crop", # Cozy beige cardigan
+                "https://images.unsplash.com/photo-1620023640226-5b6d19f6a73c?q=80&w=600&auto=format&fit=crop", # Chic blazer
+                "https://images.unsplash.com/photo-1544923246-77307dd654cb?q=80&w=600&auto=format&fit=crop"  # Black down jacket
+            ],
+            "tops": [
+                "https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?q=80&w=600&auto=format&fit=crop", # White linen shirt
+                "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600&auto=format&fit=crop", # White basic t-shirt
+                "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=600&auto=format&fit=crop", # Knit sweater
+                "https://images.unsplash.com/photo-1603248356195-23c21a11ed94?q=80&w=600&auto=format&fit=crop"  # Casual top
+            ],
+            "bottoms": [
+                "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600&auto=format&fit=crop", # Blue jeans
+                "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=600&auto=format&fit=crop", # Beige pants
+                "https://images.unsplash.com/photo-1620404432165-d5c22883f3e9?q=80&w=600&auto=format&fit=crop", # Trousers
+                "https://images.unsplash.com/photo-1583496661160-fb48862c4a4e?q=80&w=600&auto=format&fit=crop"  # Skirt
+            ],
+            "shoes": [
+                "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=600&auto=format&fit=crop", # Nike/colorful sneakers
+                "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=600&auto=format&fit=crop", # Heels/shoes
+                "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=600&auto=format&fit=crop", # Autumn boots
+                "https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?q=80&w=600&auto=format&fit=crop"  # Leather shoes
+            ],
+            "accessories": [
+                "https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=600&auto=format&fit=crop", # Sunglasses
+                "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=600&auto=format&fit=crop", # Handbag
+                "https://images.unsplash.com/photo-1509319117193-57bab727e09d?q=80&w=600&auto=format&fit=crop"  # Hat/straw hat
+            ]
+        },
+        "male": {
+            "outerwear": [
+                "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?q=80&w=600&auto=format&fit=crop", # Denim jacket
+                "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=600&auto=format&fit=crop", # Stylish coat
+                "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?q=80&w=600&auto=format&fit=crop", # Men's blazer/suit
+                "https://images.unsplash.com/photo-1618886614638-80e3c103d31a?q=80&w=600&auto=format&fit=crop"  # Leather jacket
+            ],
+            "tops": [
+                "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?q=80&w=600&auto=format&fit=crop", # Men's shirt
+                "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=600&auto=format&fit=crop", # Men's basic t-shirt
+                "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=600&auto=format&fit=crop", # Knit sweater
+                "https://images.unsplash.com/photo-1582233950450-482d385208cf?q=80&w=600&auto=format&fit=crop"  # Linen shirt
+            ],
+            "bottoms": [
+                "https://images.unsplash.com/photo-1542272604-787c3835535d?q=80&w=600&auto=format&fit=crop", # Blue jeans
+                "https://images.unsplash.com/photo-1479064555552-3ef4979f8908?q=80&w=600&auto=format&fit=crop", # Dark trousers
+                "https://images.unsplash.com/photo-1594938367916-f56f108d4b3e?q=80&w=600&auto=format&fit=crop", # Chino pants
+                "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=600&auto=format&fit=crop"  # Shorts
+            ],
+            "shoes": [
+                "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=600&auto=format&fit=crop", # White sneakers
+                "https://images.unsplash.com/photo-1533867617858-e7b97e060509?q=80&w=600&auto=format&fit=crop", # Leather shoes
+                "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=600&auto=format&fit=crop", # Boots
+                "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600&auto=format&fit=crop"  # Red/black sneakers
+            ],
+            "accessories": [
+                "https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=600&auto=format&fit=crop", # Sunglasses
+                "https://images.unsplash.com/photo-1624445215570-85f67b5749f7?q=80&w=600&auto=format&fit=crop", # Watch
+                "https://images.unsplash.com/photo-1514989940723-e8e51635b782?q=80&w=600&auto=format&fit=crop"  # Belt
+            ]
+        }
+    }
+    
+    # Categorization based on name keywords
+    cat = "tops" # default
+    if any(k in name_lower for k in ["kaban", "mont", "ceket", "blazer", "trençkot", "trenchcoat", "kırka", "hırka", "cardigan", "outerwear", "parka", "yelek"]):
+        cat = "outerwear"
+    elif any(k in name_lower for k in ["pantolon", "jean", "kot", "chino", "şort", "shorts", "pant", "trousers", "tayt", "etek", "skirt"]):
+        cat = "bottoms"
+    elif any(k in name_lower for k in ["ayakkabı", "sneaker", "bot", "postal", "çizme", "shoes", "boots", "loafers", "oxfords"]):
+        cat = "shoes"
+    elif any(k in name_lower for k in ["gözlük", "çanta", "kemer", "şapka", "saat", "belt", "sunglasses", "bag", "hat", "atkı", "bere", "eldiven", "kolye"]):
+        cat = "accessories"
+        
+    # Pick an image from the list based on name hash (to keep it deterministic yet diverse)
+    img_list = images.get(gender, images["female"]).get(cat, images["female"]["tops"])
+    hash_val = sum(ord(c) for c in item_name)
+    idx = hash_val % len(img_list)
+    return img_list[idx]
+
 def run_agent():
     print("=" * 60)
     print("  Günün Kombini (OOTD) Autonomous Agent: Daily Curated Outfits")
@@ -184,6 +270,11 @@ def run_agent():
         combinations = generate_combination(coords["display_name"], temp, condition)
         
         if combinations and "female" in combinations and "male" in combinations:
+            # Overwrite image URLs with verified ones to prevent 404 broken images
+            for gender in ["female", "male"]:
+                for item in combinations[gender].get("items", []):
+                    item["image_url"] = get_verified_clothing_image(item["name"], gender)
+
             db_data["cities"][city_key] = {
                 "weather": {
                     "temp": temp,
@@ -196,6 +287,7 @@ def run_agent():
             print(f"[OK] Successfully curated combinations for {coords['display_name']}")
         else:
             print(f"[FAIL] Could not generate combinations for {coords['display_name']}. Using dummy fallback.")
+
 
     # Write to data.json
     if db_data["cities"]:
