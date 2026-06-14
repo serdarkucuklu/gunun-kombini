@@ -1,0 +1,170 @@
+{
+  "last_updated": "2026-06-14T10:47:15.380115Z",
+  "cities": {
+    "istanbul": {
+      "weather": {
+        "temp": "23°C",
+        "condition": "Açık ve Güneşli",
+        "icon": "fa-sun"
+      },
+      "female": {
+        "theme": "Kentte Zahmetsiz Şıklık",
+        "description": "23°C güneşli İstanbul havası için tasarlanan bu kombin, keten kumaşların hafifliği ve nötr tonların zarafetiyle gün boyu konfor ve stil sunuyor.",
+        "items": [
+          {
+            "name": "Oversize Keten Karışımlı Gömlek",
+            "price": "949 TL",
+            "image_url": "https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "affiliate_link": "https://www.amazon.com.tr/s?k=kadın+oversize+keten+gömlek+ekru&tag=aurafocus-21"
+          },
+          {
+            "name": "Geniş Paça Keten Karışımlı Pantolon",
+            "price": "1.199 TL",
+            "image_url": "https://images.unsplash.com/photo-1621334692762-b911c752697a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "affiliate_link": "https://www.amazon.com.tr/s?k=kadın+geniş+paça+keten+pantolon+bej&tag=aurafocus-21"
+          },
+          {
+            "name": "Minimalist Beyaz Deri Sneaker",
+            "price": "1.899 TL",
+            "image_url": "https://images.unsplash.com/photo-1595341888049-267946979d30?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "affiliate_link": "https://www.amazon.com.tr/s?k=kadın+minimalist+beyaz+deri+sneaker&tag=aurafocus-21"
+          }
+        ]
+      },
+      "male": {
+        "theme": "Şehir Erkeği Rahat Şıklığı",
+        "description": "Güneşli ve ılık İstanbul günleri için ideal, nefes alabilen kumaşlar ve temiz çizgilerle harmanlanmış, zamansız ve rahat bir şıklık.",
+        "items": [
+          {
+            "name": "Kısa Kollu Düz Keten Gömlek",
+            "price": "799 TL",
+            "image_url": "https://images.unsplash.com/photo-1582233950450-482d385208cf?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "affiliate_link": "https://www.amazon.com.tr/s?k=erkek+kısa+kollu+düz+keten+gömlek+bej&tag=aurafocus-21"
+          },
+          {
+            "name": "Slim Fit Keten Karışımlı Chino Pantolon",
+            "price": "999 TL",
+            "image_url": "https://images.unsplash.com/photo-1594938367916-f56f108d4b3e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "affiliate_link": "https://www.amazon.com.tr/s?k=erkek+slim+fit+keten+chino+pantolon+haki&tag=aurafocus-21"
+          },
+          {
+            "name": "Beyaz Minimalist Deri Sneaker",
+            "price": "1.699 TL",
+            "image_url": "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1924&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "affiliate_link": "https://www.amazon.com.tr/s?k=erkek+minimalist+beyaz+deri+sneaker&tag=aurafocus-21"
+          }
+        ]
+      }
+    },
+    "ankara": {
+      "weather": {
+        "temp": "21°C",
+        "condition": "Parçalı Bulutlu",
+        "icon": "fa-cloud-sun"
+      },
+      "female": {
+        "theme": "Bej Tonlarında Şehir Şıklığı",
+        "description": "Ankara'nın parçalı bulutlu, 21°C havasına uygun, minimalist ve şık bir görünüm sunan bu kombin, rahatlığı ve modern çizgileri bir araya getiriyor.",
+        "items": [
+          {
+            "name": "Oversize Krep Kumaş Blazer Ceket",
+            "price": "1.299 TL",
+            "image_url": "https://images.unsplash.com/photo-1620023640226-5b6d19f6a73c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "affiliate_link": "https://www.amazon.com.tr/s?k=kadın+oversize+krep+blazer+ceket&tag=aurafocus-21"
+          },
+          {
+            "name": "Basic Fitilli Uzun Kollu Tişört",
+            "price": "249 TL",
+            "image_url": "https://images.unsplash.com/photo-1603248356195-23c21a11ed94?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "affiliate_link": "https://www.amazon.com.tr/s?k=kadın+fitilli+uzun+kollu+tişört&tag=aurafocus-21"
+          },
+          {
+            "name": "Keten Karışımlı Geniş Paça Pantolon",
+            "price": "799 TL",
+            "image_url": "https://images.unsplash.com/photo-1620404432165-d5c22883f3e9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "affiliate_link": "https://www.amazon.com.tr/s?k=kadın+keten+geniş+paça+pantolon&tag=aurafocus-21"
+          }
+        ]
+      },
+      "male": {
+        "theme": "Modern Şehir Beyefendisi",
+        "description": "21°C'lik Ankara havasına uygun, modern ve rahat bir şıklık sunan bu kombin, günlük kullanım için ideal minimalist parçalarla tasarlandı.",
+        "items": [
+          {
+            "name": "Kanvas Kumaş Overshirt",
+            "price": "899 TL",
+            "image_url": "https://images.unsplash.com/photo-1542456041-0f6b3b28b76e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "affiliate_link": "https://www.amazon.com.tr/s?k=erkek+kanvas+overshirt&tag=aurafocus-21"
+          },
+          {
+            "name": "Organik Pamuk Bisiklet Yaka Tişört",
+            "price": "199 TL",
+            "image_url": "https://images.unsplash.com/photo-1521572178477-fff924765d13?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "affiliate_link": "https://www.amazon.com.tr/s?k=erkek+organik+pamuk+bisiklet+yaka+tişört&tag=aurafocus-21"
+          },
+          {
+            "name": "Düz Kesim Chino Pantolon",
+            "price": "649 TL",
+            "image_url": "https://images.unsplash.com/photo-1543026117-66a7b21cd79a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "affiliate_link": "https://www.amazon.com.tr/s?k=erkek+düz+kesim+chino+pantolon&tag=aurafocus-21"
+          }
+        ]
+      }
+    },
+    "izmir": {
+      "weather": {
+        "temp": "30°C",
+        "condition": "Açık ve Güneşli",
+        "icon": "fa-sun"
+      },
+      "female": {
+        "theme": "İzmir Günleri: Şık ve Ferah",
+        "description": "İzmir'in 30°C'lik sıcak havasına uygun, minimalist ve şık bir görünüm sunan, keten ağırlıklı, ferah bir günlük kombin.",
+        "items": [
+          {
+            "name": "Minimalist Keten Crop Gömlek",
+            "price": "749 TL",
+            "image_url": "https://images.unsplash.com/photo-1621370603721-a3f8a4e8d3b8?w=300",
+            "affiliate_link": "https://www.amazon.com.tr/s?k=kadın+keten+crop+gömlek&tag=aurafocus-21"
+          },
+          {
+            "name": "Yüksek Bel Geniş Paça Keten Pantolon",
+            "price": "999 TL",
+            "image_url": "https://images.unsplash.com/photo-1626084478345-0d7e47a5925e?w=300",
+            "affiliate_link": "https://www.amazon.com.tr/s?k=kadın+yüksek+bel+geniş+paça+keten+pantolon&tag=aurafocus-21"
+          },
+          {
+            "name": "Minimalist İnce Bantlı Deri Sandalet",
+            "price": "649 TL",
+            "image_url": "https://images.unsplash.com/photo-1595304005110-381c818816d8?w=300",
+            "affiliate_link": "https://www.amazon.com.tr/s?k=kadın+minimalist+ince+bantlı+deri+sandalet&tag=aurafocus-21"
+          }
+        ]
+      },
+      "male": {
+        "theme": "Akdeniz Esintisi: Keten Rahatlığı",
+        "description": "İzmir'in sıcak ve güneşli havasında hem serin hem de stil sahibi kalmak isteyen erkekler için keten ve süet detaylarla oluşturulmuş rahat ve estetik bir kombin.",
+        "items": [
+          {
+            "name": "Açık Renk Keten Kısa Kollu Gömlek",
+            "price": "799 TL",
+            "image_url": "https://images.unsplash.com/photo-1616038891081-37d4554b4c73?w=300",
+            "affiliate_link": "https://www.amazon.com.tr/s?k=erkek+keten+kısa+kollu+gömlek&tag=aurafocus-21"
+          },
+          {
+            "name": "Bej Keten Şort",
+            "price": "849 TL",
+            "image_url": "https://images.unsplash.com/photo-1510697904018-0f735d4f3e69?w=300",
+            "affiliate_link": "https://www.amazon.com.tr/s?k=erkek+bej+keten+şort&tag=aurafocus-21"
+          },
+          {
+            "name": "Minimalist Süet Espadril",
+            "price": "899 TL",
+            "image_url": "https://images.unsplash.com/photo-1521404090597-90c74b179b0c?w=300",
+            "affiliate_link": "https://www.amazon.com.tr/s?k=erkek+minimalist+süet+espadril&tag=aurafocus-21"
+          }
+        ]
+      }
+    }
+  }
+}

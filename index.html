@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Günün Kombini — Noble Vision</title>
+    <!-- Favicon SVG -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='%23d8b26c' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='20' fill='none' stroke='%23d8b26c' stroke-width='1' stroke-dasharray='4,4'/%3E%3Cpath d='M50 10 L50 90 M10 50 L90 50' stroke='%23d8b26c' stroke-width='0.5' stroke-opacity='0.5'/%3E%3C/svg%3E">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Outfit:wght@200;400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- HEADER -->
+        <header class="app-header">
+            <div class="logo-container">
+                <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="30" fill="none" stroke="#d8b26c" stroke-width="2"/>
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="#d8b26c" stroke-width="1" stroke-dasharray="4,4"/>
+                    <path d="M50 10 L50 90 M10 50 L90 50" stroke="#d8b26c" stroke-width="0.5" stroke-opacity="0.5"/>
+                </svg>
+                <div class="brand-info">
+                    <span class="sub-header">N O B L E   V I S I O N</span>
+                    <h1 class="main-title">Günün Kombini</h1>
+                </div>
+            </div>
+            <div class="last-updated-badge" id="last-updated">Yükleniyor...</div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <!-- CONTROLS SECTION -->
+            <section class="control-panel">
+                <!-- City Selector Tabs -->
+                <div class="tabs-container city-tabs">
+                    <button class="tab-btn active" data-city="istanbul">İstanbul</button>
+                    <button class="tab-btn" data-city="ankara">Ankara</button>
+                    <button class="tab-btn" data-city="izmir">İzmir</button>
+                </div>
+
+                <!-- Weather Status Card -->
+                <div class="weather-card" id="weather-card">
+                    <div class="weather-details">
+                        <i class="fa-solid fa-cloud-sun weather-icon" id="weather-icon"></i>
+                        <span class="weather-temp" id="weather-temp">--°C</span>
+                        <span class="weather-condition" id="weather-condition">Yükleniyor...</span>
+                    </div>
+                </div>
+
+                <!-- Gender Selector Tabs -->
+                <div class="tabs-container gender-tabs">
+                    <button class="gender-btn active" data-gender="female">
+                        <i class="fa-solid fa-venus"></i> Kadın Kombini
+                    </button>
+                    <button class="gender-btn" data-gender="male">
+                        <i class="fa-solid fa-mars"></i> Erkek Kombini
+                    </button>
+                </div>
+            </section>
+
+            <!-- COMBINATION CARDS SECTION -->
+            <section class="combination-display">
+                <!-- Theme Overview -->
+                <div class="theme-card" id="theme-card">
+                    <h2 class="theme-title" id="theme-title">Yükleniyor...</h2>
+                    <p class="theme-description" id="theme-description">Günlük kombin detayları hazırlanıyor...</p>
+                </div>
+
+                <!-- Items Grid -->
+                <div class="items-grid" id="items-grid">
+                    <!-- Dynamic clothing cards go here -->
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="app-footer">
+            <div class="footer-links">
+                <a href="https://aurafokus.vercel.app/" target="_blank">AuraFocus</a>
+                <span>•</span>
+                <a href="https://giftauram.vercel.app/" target="_blank">GiftAura</a>
+                <span>•</span>
+                <a href="https://altinim.vercel.app/" target="_blank">ParaAura</a>
+            </div>
+            <div class="brand-handle">@noble.vision.tr</div>
+        </footer>
+    </div>
+
+    <!-- Script -->
+    <script src="app.js"></script>
+</body>
+</html>
