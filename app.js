@@ -58,11 +58,29 @@ function render() {
     // 3. Clear and Render Items Grid
     itemsGrid.innerHTML = '';
     
+    const activeQuizResult = localStorage.getItem('ootd_style_vibe');
+
     genderData.items.forEach(item => {
         const card = document.createElement('div');
-        card.className = 'clothing-card';
+        
+        let isMatch = false;
+        if (activeQuizResult) {
+            const lowerName = item.name.toLowerCase();
+            if (activeQuizResult.includes('Sokak') && (lowerName.includes('jean') || lowerName.includes('pantolon') || lowerName.includes('ayakkabı') || lowerName.includes('gözlük') || lowerName.includes('kemer'))) {
+                isMatch = true;
+            } else if (activeQuizResult.includes('Ofis') && (lowerName.includes('ceket') || lowerName.includes('blazer') || lowerName.includes('gömlek') || lowerName.includes('saat'))) {
+                isMatch = true;
+            } else if (activeQuizResult.includes('Randevu') && (lowerName.includes('çanta') || lowerName.includes('elbise') || lowerName.includes('etek') || lowerName.includes('parfüm') || lowerName.includes('bluz'))) {
+                isMatch = true;
+            } else if (activeQuizResult.includes('Spor') && (lowerName.includes('tayt') || lowerName.includes('şort') || lowerName.includes('tişört') || lowerName.includes('ayakkabı'))) {
+                isMatch = true;
+            }
+        }
+        
+        card.className = `clothing-card ${isMatch ? 'highlight-match' : ''}`;
         
         card.innerHTML = `
+            ${isMatch ? '<span class="clothing-card-badge">✨ Önerilen</span>' : ''}
             <div class="card-img-container">
                 <img src="${item.image_url}" alt="${item.name}" class="card-img" loading="lazy" onerror="this.onerror=null; this.src=getFallbackClothingImage('${item.name}')">
             </div>
@@ -103,6 +121,95 @@ function getFallbackClothingImage(name) {
 }
 
 
+// Style Quiz State
+let quizAnswers = { q1: null, q2: null, q3: null };
+
+// Modal elements
+const quizModal = document.getElementById('quiz-modal');
+const quizTriggerBtn = document.getElementById('quiz-trigger-btn');
+const quizModalClose = document.getElementById('quiz-modal-close');
+const quizSteps = document.querySelectorAll('.quiz-step');
+const quizOptBtns = document.querySelectorAll('.quiz-opt-btn');
+const quizResultCard = document.getElementById('quiz-result-card');
+const quizStepsContainer = document.querySelector('.quiz-steps-container');
+const quizResultTitle = document.getElementById('quiz-result-title');
+const quizResultDesc = document.getElementById('quiz-result-desc');
+const quizRestartBtn = document.getElementById('quiz-restart-btn');
+
+function openQuiz() {
+    // Reset quiz state
+    quizAnswers = { q1: null, q2: null, q3: null };
+    quizSteps.forEach((step, idx) => {
+        if (idx === 0) step.classList.add('active');
+        else step.classList.remove('active');
+    });
+    quizStepsContainer.style.display = 'block';
+    quizResultCard.style.display = 'none';
+    quizModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeQuiz() {
+    quizModal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function selectQuizOption(questionNum, val) {
+    quizAnswers[`q${questionNum}`] = val;
+    
+    const nextStepNum = questionNum + 1;
+    const currentStep = document.getElementById(`quiz-step-${questionNum}`);
+    const nextStep = document.getElementById(`quiz-step-${nextStepNum}`);
+    
+    if (currentStep) currentStep.classList.remove('active');
+    
+    if (nextStep) {
+        nextStep.classList.add('active');
+    } else {
+        // Quiz finished, show result
+        calculateQuizResult();
+    }
+}
+
+function calculateQuizResult() {
+    let title = '';
+    let desc = '';
+    
+    const { q1, q2, q3 } = quizAnswers;
+    
+    // Choose dynamic response based on combinations
+    if (q1 === 'office') {
+        title = 'Klasik Ofis Şıklığı';
+        desc = 'İş veya okul gününüz için profesyonel duruşu elden bırakmayan, aynı zamanda son derece modern ve çabasız bir ceket/blazer kombini sizin için en ideali.';
+    } else if (q1 === 'date') {
+        title = 'Randevu Şıklığı';
+        desc = 'Özel bir akşam yemeği veya buluşma için şık aksesuarlar ve bluz/elbise detaylarıyla taçlandırılmış göz alıcı bir kombin modunuzu tamamlayacak.';
+    } else if (q1 === 'active') {
+        title = 'Dinamik Spor Stili';
+        desc = 'Hareketli ve sportif bir gün için tayt/şort ve dinamik spor ayakkabılarla oluşturulmuş, konforu en üst düzeyde hissettiren bir sokak stili.';
+    } else {
+        // default casual
+        if (q2 === 'street') {
+            title = 'Minimalist Sokak Modası';
+            desc = 'Rahat jeanler, sneakerlar ve oversize kesimlerle oluşturulmuş çabasız şehir şıklığı. Günlük rutinlerinizde tarzınızı en konforlu şekilde yansıtın.';
+        } else {
+            title = 'Çabasız Şehir Kombini';
+            desc = 'Hafif dokular, sade renk geçişleri ve gündelik hayatın koşuşturmasına ayak uyduran son derece pratik ve modern parçaların uyumu.';
+        }
+    }
+    
+    localStorage.setItem('ootd_style_vibe', title);
+    
+    quizResultTitle.textContent = title;
+    quizResultDesc.textContent = desc;
+    
+    quizStepsContainer.style.display = 'none';
+    quizResultCard.style.display = 'flex';
+    
+    // Rerender main page to apply recommendation highlights
+    render();
+}
+
 // Event Listeners for City Tabs
 cityBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -123,5 +230,25 @@ genderBtns.forEach(btn => {
     });
 });
 
+// Quiz Listeners
+quizTriggerBtn.addEventListener('click', openQuiz);
+quizModalClose.addEventListener('click', closeQuiz);
+quizModal.addEventListener('click', (e) => {
+    if (e.target === quizModal) closeQuiz();
+});
+
+quizOptBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const q = parseInt(btn.dataset.q);
+        const val = btn.dataset.val;
+        selectQuizOption(q, val);
+    });
+});
+
+quizRestartBtn.addEventListener('click', () => {
+    openQuiz();
+});
+
 // Initialize
 loadData();
+

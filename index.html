@@ -116,6 +116,11 @@
                         <i class="fa-solid fa-mars"></i> Erkek Kombini
                     </button>
                 </div>
+
+                <!-- Style Quiz Button -->
+                <button class="quiz-trigger-btn" id="quiz-trigger-btn">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Stil Danışmanı Quizi
+                </button>
             </section>
 
             <!-- COMBINATION CARDS SECTION -->
@@ -144,6 +149,59 @@
             </div>
             <div class="brand-handle">@noble.vision.tr</div>
         </footer>
+    </div>
+
+    <!-- Style Quiz Modal -->
+    <div id="quiz-modal" class="image-modal">
+        <div class="modal-content-wrapper quiz-modal-wrapper">
+            <button class="modal-close" id="quiz-modal-close" aria-label="Kapat">&times;</button>
+            <div class="quiz-modal-content">
+                <h3 class="quiz-modal-title"><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--accent-gold);"></i> Kişisel Stil Asistanı</h3>
+                <p class="quiz-modal-subtitle">Bugünün havasına ve modunuza en uygun kombini bulmak için 3 soruyu yanıtlayın.</p>
+                
+                <div class="quiz-steps-container">
+                    <!-- Step 1 -->
+                    <div class="quiz-step active" id="quiz-step-1">
+                        <span class="quiz-step-indicator">Soru 1 / 3</span>
+                        <h4 class="quiz-question">Bugün nereye gidiyorsunuz?</h4>
+                        <div class="quiz-options-grid">
+                            <button class="quiz-opt-btn" data-q="1" data-val="office">💼 İş / Okul / Resmi</button>
+                            <button class="quiz-opt-btn" data-q="1" data-val="casual">☕ Kahve & Gezinti</button>
+                            <button class="quiz-opt-btn" data-q="1" data-val="date">Randevu & Akşam Yemeği</button>
+                            <button class="quiz-opt-btn" data-q="1" data-val="active">Aktivite / Spor</button>
+                        </div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="quiz-step" id="quiz-step-2">
+                        <span class="quiz-step-indicator">Soru 2 / 3</span>
+                        <h4 class="quiz-question">Nasıl bir stil havası arıyorsunuz?</h4>
+                        <div class="quiz-options-grid">
+                            <button class="quiz-opt-btn" data-q="2" data-val="classic">🧥 Klasik / Şık</button>
+                            <button class="quiz-opt-btn" data-q="2" data-val="casual">👟 Günlük / Casual</button>
+                            <button class="quiz-opt-btn" data-q="2" data-val="street">🔥 Streetwear / Oversize</button>
+                            <button class="quiz-opt-btn" data-q="2" data-val="glam">💎 Glam / Dikkat Çekici</button>
+                        </div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="quiz-step" id="quiz-step-3">
+                        <span class="quiz-step-indicator">Soru 3 / 3</span>
+                        <h4 class="quiz-question">Bugünkü renk / enerji modunuz?</h4>
+                        <div class="quiz-options-grid">
+                            <button class="quiz-opt-btn" data-q="3" data-val="minimal">🧘 Sakin & Minimalist</button>
+                            <button class="quiz-opt-btn" data-q="3" data-val="vibrant">🚀 Canlı & Renkli</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result Card -->
+                <div class="quiz-result-card" id="quiz-result-card" style="display: none;">
+                    <div class="result-badge">✨ Kişisel Stiliniz Belirlendi!</div>
+                    <h4 class="result-title" id="quiz-result-title">--</h4>
+                    <p class="result-desc" id="quiz-result-desc">--</p>
+                    <button class="quiz-restart-btn" id="quiz-restart-btn"><i class="fa-solid fa-rotate-left"></i> Testi Yeniden Yap</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Script -->
