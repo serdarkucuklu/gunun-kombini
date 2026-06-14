@@ -537,6 +537,44 @@ body {
 }
 
 /* Modal and Steps */
+.image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(42, 36, 33, 0.6);
+    backdrop-filter: blur(8px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.modal-close:hover {
+    color: var(--text-primary);
+}
+
 .quiz-modal-wrapper {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
