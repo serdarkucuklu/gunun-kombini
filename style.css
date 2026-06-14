@@ -1,15 +1,15 @@
 /* ─── DESIGN TOKENS & SYSTEM ──────────────────────────────────────────────── */
 :root {
-    --bg-primary: #0a0a0d;
-    --bg-secondary: #121217;
-    --bg-card: #181820;
-    --border-color: rgba(216, 178, 108, 0.15);
-    --border-hover: rgba(216, 178, 108, 0.45);
+    --bg-primary: #fbf9f8;
+    --bg-secondary: #f5efeb;
+    --bg-card: #ffffff;
+    --border-color: rgba(212, 136, 128, 0.18);
+    --border-hover: rgba(212, 136, 128, 0.45);
     
-    --accent-gold: #d8b26c;
-    --accent-gold-rgb: 216, 178, 108;
-    --text-primary: #f8f9fa;
-    --text-secondary: #a0a5b5;
+    --accent-gold: #d48880;
+    --accent-gold-rgb: 212, 136, 128;
+    --text-primary: #2a2421;
+    --text-secondary: #786e68;
     
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Outfit', sans-serif;
@@ -36,8 +36,8 @@ body {
     display: flex;
     justify-content: center;
     background-image: 
-        radial-gradient(at 10% 20%, rgba(216, 178, 108, 0.05) 0px, transparent 50%),
-        radial-gradient(at 90% 80%, rgba(38, 208, 206, 0.03) 0px, transparent 50%);
+        radial-gradient(at 10% 20%, rgba(243, 185, 177, 0.3) 0px, transparent 50%),
+        radial-gradient(at 90% 80%, rgba(229, 211, 237, 0.3) 0px, transparent 50%);
 }
 
 .app-container {
@@ -147,14 +147,14 @@ body {
 
 .tab-btn.active {
     background: var(--accent-gold);
-    color: var(--bg-primary);
-    box-shadow: 0 4px 15px rgba(var(--accent-gold-rgb), 0.3);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(var(--accent-gold-rgb), 0.35);
 }
 
 .gender-btn.active {
-    background: #ffffff;
-    color: var(--bg-primary);
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+    background: var(--accent-gold);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(var(--accent-gold-rgb), 0.35);
 }
 
 /* Weather display card */
@@ -241,7 +241,7 @@ body {
 .clothing-card:hover {
     transform: translateY(-8px);
     border-color: var(--border-hover);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(42, 36, 33, 0.08);
 }
 
 .card-img-container {
@@ -249,7 +249,7 @@ body {
     width: 100%;
     padding-top: 110%; /* 1:1.1 aspect ratio */
     overflow: hidden;
-    background: #101014;
+    background: var(--bg-secondary);
 }
 
 .card-img {
@@ -311,8 +311,8 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background: linear-gradient(135deg, #e5c07b 0%, #d8b26c 100%);
-    color: #0c0c10;
+    background: linear-gradient(135deg, #e8ada6 0%, #d48880 100%);
+    color: #ffffff;
     border: none;
     padding: 14px;
     border-radius: var(--radius-sm);
@@ -323,12 +323,13 @@ body {
     text-decoration: none;
     transition: var(--transition);
     width: 100%;
+    box-shadow: 0 4px 12px rgba(212, 136, 128, 0.2);
 }
 
 .affiliate-btn:hover {
-    background: #ffffff;
-    color: #0c0c10;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+    background: var(--text-primary);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(42, 36, 33, 0.15);
 }
 
 /* ─── FOOTER ───────────────────────────────────────────────────────────────── */
@@ -409,7 +410,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 15px 35px rgba(42, 36, 33, 0.06);
     z-index: 99;
     transition: var(--transition);
     overflow-y: auto;
@@ -427,7 +428,7 @@ body {
 .sidebar-ad:hover {
     border-color: var(--border-hover);
     transform: translateY(-2px);
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 20px 45px rgba(42, 36, 33, 0.1);
 }
 
 .left-ad {
@@ -466,7 +467,7 @@ body {
     flex-direction: column;
     gap: 6px;
     padding: 8px;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(42, 36, 33, 0.015);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-sm);
     text-decoration: none;
@@ -475,7 +476,7 @@ body {
 
 .skyscraper-item:hover {
     border-color: var(--accent-gold);
-    background: rgba(216, 178, 108, 0.05);
+    background: rgba(212, 136, 128, 0.08);
     transform: translateY(-2px);
 }
 
