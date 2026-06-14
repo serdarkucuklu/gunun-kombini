@@ -249,6 +249,136 @@ quizRestartBtn.addEventListener('click', () => {
     openQuiz();
 });
 
+// Sanal Gardırobum State & Helpers
+let savedOutfits = JSON.parse(localStorage.getItem('wardrobe_outfits')) || [];
+
+function saveActiveOutfit() {
+    if (!appData || !appData.cities || !appData.cities[currentCity]) return;
+    const cityData = appData.cities[currentCity];
+    const genderData = cityData[currentGender];
+    
+    // Check if already saved
+    const exists = savedOutfits.some(outfit => outfit.theme === genderData.theme && outfit.city === currentCity && outfit.gender === currentGender);
+    if (exists) {
+        alert('Bu kombin zaten gardırobunuzda kayıtlı.');
+        return;
+    }
+    
+    const newOutfit = {
+        id: 'outfit-' + Date.now(),
+        city: currentCity.charAt(0).toUpperCase() + currentCity.slice(1),
+        gender: currentGender,
+        theme: genderData.theme,
+        temp: cityData.weather.temp,
+        items: genderData.items
+    };
+    
+    savedOutfits.push(newOutfit);
+    localStorage.setItem('wardrobe_outfits', JSON.stringify(savedOutfits));
+    
+    sendNotificationBanner('Kombin Gardıroba Eklendi! ❤️', `"${genderData.theme}" kombini başarıyla sanal gardırobunuza kaydedildi.`);
+    renderWardrobe();
+}
+
+window.deleteWardrobeOutfit = function(id) {
+    savedOutfits = savedOutfits.filter(outfit => outfit.id !== id);
+    localStorage.setItem('wardrobe_outfits', JSON.stringify(savedOutfits));
+    renderWardrobe();
+};
+
+window.loadWardrobeOutfit = function(id) {
+    const outfit = savedOutfits.find(o => o.id === id);
+    if (!outfit) return;
+    
+    // Set active city tab
+    currentCity = outfit.city.toLowerCase();
+    cityBtns.forEach(btn => {
+        if (btn.dataset.city === currentCity) btn.classList.add('active');
+        else btn.classList.remove('active');
+    });
+    
+    // Set active gender tab
+    currentGender = outfit.gender;
+    genderBtns.forEach(btn => {
+        if (btn.dataset.gender === currentGender) btn.classList.add('active');
+        else btn.classList.remove('active');
+    });
+    
+    // Scroll to display
+    document.getElementById('theme-card').scrollIntoView({ behavior: 'smooth' });
+    
+    render();
+    
+    sendNotificationBanner('Kombin Yüklendi! 👕', `"${outfit.theme}" kombini ekrana yüklendi.`);
+};
+
+function renderWardrobe() {
+    const section = document.getElementById('wardrobe-section');
+    const grid = document.getElementById('wardrobe-grid');
+    if (!section || !grid) return;
+    
+    if (savedOutfits.length === 0) {
+        section.style.display = 'none';
+        return;
+    }
+    
+    section.style.display = 'block';
+    grid.innerHTML = '';
+    
+    savedOutfits.forEach(outfit => {
+        const card = document.createElement('div');
+        card.className = 'wardrobe-card';
+        
+        const genderLabel = outfit.gender === 'female' ? 'Kadın' : 'Erkek';
+        const genderIcon = outfit.gender === 'female' ? 'fa-venus' : 'fa-mars';
+        
+        const itemsHtml = outfit.items.map(item => `
+            <a href="${item.affiliate_link}" target="_blank" class="wardrobe-preview-item" title="${item.name} - ${item.price}">
+                <img src="${item.image_url}" alt="${item.name}">
+            </a>
+        `).join('');
+        
+        card.innerHTML = `
+            <button class="wardrobe-delete-btn" onclick="deleteWardrobeOutfit('${outfit.id}')" title="Kombini Sil">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+            <div class="wardrobe-meta">
+                <span class="wardrobe-tag"><i class="fa-solid fa-location-dot"></i> ${outfit.city}</span>
+                <span class="wardrobe-tag"><i class="fa-solid ${genderIcon}"></i> ${genderLabel}</span>
+                <span class="wardrobe-tag"><i class="fa-solid fa-temperature-half"></i> ${outfit.temp}</span>
+            </div>
+            <h4 class="wardrobe-title">${outfit.theme}</h4>
+            <div class="wardrobe-items-preview">
+                ${itemsHtml}
+            </div>
+            <div class="wardrobe-actions">
+                <span class="wardrobe-items-count">${outfit.items.length} Parça</span>
+                <button class="wardrobe-load-btn" onclick="loadWardrobeOutfit('${outfit.id}')"><i class="fa-solid fa-eye"></i> Kombini İncele</button>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+function sendNotificationBanner(title, body) {
+    // UI Banner alert
+    const banner = document.createElement('div');
+    banner.className = 'custom-alert-banner';
+    banner.innerHTML = `<i class="fa-solid fa-bell"></i> <span><strong>${title}</strong>: ${body}</span>`;
+    document.body.appendChild(banner);
+    
+    setTimeout(() => {
+        banner.classList.add('fade-out');
+        setTimeout(() => banner.remove(), 500);
+    }, 6000);
+}
+
 // Initialize
+const saveOutfitBtn = document.getElementById('save-outfit-btn');
+if (saveOutfitBtn) {
+    saveOutfitBtn.addEventListener('click', saveActiveOutfit);
+}
+
 loadData();
+renderWardrobe();
 
